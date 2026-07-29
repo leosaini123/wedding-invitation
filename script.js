@@ -147,25 +147,20 @@
 
     const start = () => { if (userStopped) return; const p = bgm.play(); if (p && p.catch) p.catch(() => {}); };
 
-    // try right away; browsers usually block until a gesture, so also arm the first interaction
+    // 1) attempt real autoplay immediately — works for returning visitors / permissive browsers
     start(); sync();
+    bgm.addEventListener("canplay", start, { once: true });
+    document.addEventListener("visibilitychange", () => { if (!document.hidden) start(); });
 
-    const cleanup = () => {
-      document.removeEventListener("pointerdown", kick);
-      document.removeEventListener("keydown", kick);
-      document.removeEventListener("touchstart", kick);
-      window.removeEventListener("scroll", kickScroll);
-    };
-    function kick(e) {                        // any interaction EXCEPT the button starts playback
-      if (e && e.target && e.target.closest && e.target.closest("#audioBtn")) return;
+    // 2) otherwise begin the instant the visitor does ANYTHING (browsers require one gesture for sound)
+    const gestureEvents = ["pointerdown", "mousedown", "click", "keydown", "touchstart", "touchend", "scroll", "wheel", "mousemove"];
+    const cleanup = () => gestureEvents.forEach((ev) => document.removeEventListener(ev, kick, true));
+    function kick(e) {
+      if (e && e.target && e.target.closest && e.target.closest("#audioBtn")) return; // button handles itself
       start();
-      if (!bgm.paused) cleanup();
+      if (!bgm.paused && !bgm.muted) cleanup();
     }
-    function kickScroll() { start(); if (!bgm.paused) cleanup(); }
-    document.addEventListener("pointerdown", kick);
-    document.addEventListener("keydown", kick);
-    document.addEventListener("touchstart", kick, { passive: true });
-    window.addEventListener("scroll", kickScroll, { passive: true });
+    gestureEvents.forEach((ev) => document.addEventListener(ev, kick, true));
 
     // the button is the ONLY manual control: stop if playing, resume if stopped (single click)
     audioBtn.addEventListener("click", () => {
