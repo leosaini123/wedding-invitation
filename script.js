@@ -126,4 +126,35 @@
     lb.addEventListener("click", (e) => { if (e.target === lb) closeLB(); });
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lb.classList.contains("show")) closeLB(); });
   }
+
+  /* ---------- background music (loops forever; top button mutes/unmutes) ---------- */
+  const bgm = $("#bgm"), audioBtn = $("#audioBtn");
+  if (bgm && audioBtn) {
+    let armed = false;
+    const ui = (muted) => {
+      audioBtn.classList.toggle("muted", muted);
+      audioBtn.setAttribute("aria-pressed", muted ? "false" : "true");
+    };
+    const soundOn = () => { bgm.muted = false; if (bgm.paused) bgm.play().catch(() => {}); armed = true; ui(false); };
+    const soundOff = () => { bgm.muted = true; ui(true); };
+
+    bgm.loop = true;
+    bgm.volume = 0.55;
+    bgm.muted = true;                      // muted autoplay is allowed → keeps looping silently
+    bgm.play().catch(() => {});
+    ui(true);
+
+    // first interaction anywhere (except the button itself) switches the sound on
+    const first = (e) => {
+      if (armed) return;
+      if (e && e.target && e.target.closest && e.target.closest("#audioBtn")) return;
+      soundOn();
+    };
+    window.addEventListener("pointerdown", first, { passive: true });
+    window.addEventListener("keydown", first);
+    window.addEventListener("scroll", () => { if (!armed) soundOn(); }, { passive: true, once: true });
+
+    // the top button toggles mute
+    audioBtn.addEventListener("click", () => { if (bgm.muted) soundOn(); else soundOff(); });
+  }
 })();

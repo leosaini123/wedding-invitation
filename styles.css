@@ -90,6 +90,23 @@ section{position:relative;padding:clamp(4rem,9vw,7.5rem) 1.5rem}
 .nav-links a:hover::after,.nav-links a.active::after{width:100%}
 
 /* ============================================================
+   MUSIC BUTTON
+   ============================================================ */
+.audio-btn{position:fixed;top:1rem;right:1rem;z-index:60;width:46px;height:46px;border-radius:50%;
+  border:1px solid var(--gold);background:rgba(251,247,240,.92);backdrop-filter:blur(6px);
+  color:var(--emerald);cursor:pointer;display:grid;place-items:center;
+  box-shadow:0 6px 18px rgba(31,74,61,.16);transition:transform .3s var(--ease),box-shadow .3s var(--ease)}
+.audio-btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(31,74,61,.24)}
+.audio-btn svg{width:22px;height:22px}
+.audio-btn .wave{transition:opacity .25s}
+.audio-btn .slash{opacity:0;transition:opacity .25s}
+.audio-btn:not(.muted) .wave{animation:pulseWave 1.6s ease-in-out infinite}
+.audio-btn:not(.muted) .w2{animation-delay:.25s}
+.audio-btn.muted .wave{opacity:.12}
+.audio-btn.muted .slash{opacity:1}
+@keyframes pulseWave{0%,100%{opacity:.55}50%{opacity:1}}
+
+/* ============================================================
    HERO
    ============================================================ */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;
