@@ -1,0 +1,33 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f4ecdd"/>
+  <circle cx="200" cy="150" r="122" fill="#efc9c1" opacity="0.6"/>
+  <!-- ground -->
+  <ellipse cx="200" cy="252" rx="140" ry="14" fill="#d9b98f" opacity="0.6"/>
+  <!-- decorated horse (profile) -->
+  <g>
+    <!-- legs -->
+    <g stroke="#f2ede4" stroke-width="11" stroke-linecap="round">
+      <line x1="150" y1="200" x2="146" y2="246"/><line x1="172" y1="205" x2="170" y2="248"/>
+      <line x1="228" y1="205" x2="232" y2="248"/><line x1="250" y1="200" x2="256" y2="246"/>
+    </g>
+    <!-- body -->
+    <path d="M140 200 C130 165 160 150 200 150 C245 150 270 160 268 198 C250 210 160 212 140 200 Z" fill="#fbf6ee"/>
+    <path d="M140 200 C130 165 160 150 200 150 C245 150 270 160 268 198 C250 210 160 212 140 200 Z" fill="none" stroke="#e2d6c4" stroke-width="2"/>
+    <!-- neck + head -->
+    <path d="M258 168 C286 150 296 120 288 104 C300 108 312 120 306 138 C300 156 286 172 272 182 Z" fill="#fbf6ee" stroke="#e2d6c4" stroke-width="2"/>
+    <path d="M286 104 L300 92 L304 104 Z" fill="#fbf6ee"/>
+    <circle cx="292" cy="120" r="3" fill="#4a2f1e"/>
+    <!-- mane -->
+    <path d="M262 168 C270 150 278 138 284 128" stroke="#7a4a2a" stroke-width="6" fill="none" stroke-linecap="round"/>
+    <!-- decorative jhool (drape) -->
+    <path d="M150 175 C160 205 245 205 262 178 L255 210 C230 224 175 224 156 208 Z" fill="#b3202e"/>
+    <path d="M156 208 C175 220 230 220 255 210" fill="none" stroke="#e6c25a" stroke-width="3"/>
+    <g fill="#e6c25a"><circle cx="175" cy="196" r="3"/><circle cx="200" cy="200" r="3"/><circle cx="225" cy="196" r="3"/></g>
+    <!-- plume on head -->
+    <path d="M300 92 C300 74 312 66 316 60 C314 74 320 82 312 92 Z" fill="#e5388a"/>
+    <path d="M300 92 C296 76 286 70 282 64 C288 76 284 86 296 92 Z" fill="#f6a623"/>
+  </g>
+  <!-- confetti -->
+  <g><rect x="110" y="80" width="7" height="10" fill="#e5388a" transform="rotate(20 110 80)"/><rect x="300" y="70" width="7" height="10" fill="#2a9d8f" transform="rotate(-15 300 70)"/><rect x="90" y="130" width="6" height="9" fill="#f2b705"/><rect x="320" y="150" width="6" height="9" fill="#b3202e" transform="rotate(30 320 150)"/></g>
+  <rect x="12" y="12" width="376" height="276" fill="none" stroke="#caa25e" stroke-width="1.5"/>
+</svg>

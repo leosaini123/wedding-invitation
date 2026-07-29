@@ -1,0 +1,32 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f4ecdd"/>
+  <circle cx="200" cy="150" r="122" fill="#cfe3d5" opacity="0.6"/>
+  <!-- two intertwined garland loops -->
+  <g fill="none" stroke-linecap="round">
+    <path d="M150 90 C90 130 90 210 160 230" stroke="#2f6553" stroke-width="3" opacity="0.5"/>
+    <path d="M250 90 C310 130 310 210 240 230" stroke="#2f6553" stroke-width="3" opacity="0.5"/>
+  </g>
+  <!-- left garland flowers (marigold) -->
+  <g>
+    <!-- distribute marigolds along a loop -->
+    <g transform="translate(150,90)"><g fill="#f39a1a"><circle cx="0" cy="-9" r="4.5"/><circle cx="7" cy="-6" r="4.5"/><circle cx="9" cy="0" r="4.5"/><circle cx="7" cy="7" r="4.5"/><circle cx="0" cy="9" r="4.5"/><circle cx="-7" cy="7" r="4.5"/><circle cx="-9" cy="0" r="4.5"/><circle cx="-7" cy="-6" r="4.5"/></g><circle r="5" fill="#e07b0b"/></g>
+    <g transform="translate(112,124)"><g fill="#f5a623"><circle cx="0" cy="-9" r="4.5"/><circle cx="7" cy="-6" r="4.5"/><circle cx="9" cy="0" r="4.5"/><circle cx="7" cy="7" r="4.5"/><circle cx="0" cy="9" r="4.5"/><circle cx="-7" cy="7" r="4.5"/><circle cx="-9" cy="0" r="4.5"/><circle cx="-7" cy="-6" r="4.5"/></g><circle r="5" fill="#e07b0b"/></g>
+    <g transform="translate(104,170)"><g fill="#f39a1a"><circle cx="0" cy="-9" r="4.5"/><circle cx="7" cy="-6" r="4.5"/><circle cx="9" cy="0" r="4.5"/><circle cx="7" cy="7" r="4.5"/><circle cx="0" cy="9" r="4.5"/><circle cx="-7" cy="7" r="4.5"/><circle cx="-9" cy="0" r="4.5"/><circle cx="-7" cy="-6" r="4.5"/></g><circle r="5" fill="#e07b0b"/></g>
+    <g transform="translate(126,208)"><g fill="#f5a623"><circle cx="0" cy="-9" r="4.5"/><circle cx="7" cy="-6" r="4.5"/><circle cx="9" cy="0" r="4.5"/><circle cx="7" cy="7" r="4.5"/><circle cx="0" cy="9" r="4.5"/><circle cx="-7" cy="7" r="4.5"/><circle cx="-9" cy="0" r="4.5"/><circle cx="-7" cy="-6" r="4.5"/></g><circle r="5" fill="#e07b0b"/></g>
+  </g>
+  <!-- right garland flowers (rose/blush) -->
+  <g fill="#d76a8f">
+    <g transform="translate(250,90)"><circle r="9"/><circle r="4.5" fill="#f2b3c8"/></g>
+    <g transform="translate(288,124)"><circle r="9"/><circle r="4.5" fill="#f2b3c8"/></g>
+    <g transform="translate(296,170)"><circle r="9"/><circle r="4.5" fill="#f2b3c8"/></g>
+    <g transform="translate(274,208)"><circle r="9"/><circle r="4.5" fill="#f2b3c8"/></g>
+  </g>
+  <!-- centre knot / rings -->
+  <g transform="translate(200,150)">
+    <circle cx="-12" cy="0" r="20" fill="none" stroke="#b1873f" stroke-width="4"/>
+    <circle cx="12" cy="0" r="20" fill="none" stroke="#e6c25a" stroke-width="4"/>
+  </g>
+  <!-- falling petals -->
+  <g fill="#e5a0b0"><path d="M180 60 C186 64 186 72 180 78 C174 72 174 64 180 60Z"/><path d="M230 70 C236 74 236 82 230 88 C224 82 224 74 230 70Z"/><path d="M200 250 C206 254 206 262 200 268 C194 262 194 254 200 250Z"/></g>
+  <rect x="12" y="12" width="376" height="276" fill="none" stroke="#caa25e" stroke-width="1.5"/>
+</svg>

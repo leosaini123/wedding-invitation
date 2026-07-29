@@ -1,0 +1,38 @@
+<svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg">
+  <rect width="400" height="300" fill="#f4ecdd"/>
+  <circle cx="200" cy="150" r="122" fill="#f6e3a1" opacity="0.55"/>
+  <g stroke="#e0bd57" stroke-width="3" stroke-linecap="round" opacity="0.6">
+    <line x1="200" y1="34" x2="200" y2="18"/><line x1="150" y1="44" x2="142" y2="30"/>
+    <line x1="250" y1="44" x2="258" y2="30"/><line x1="110" y1="78" x2="98" y2="68"/>
+    <line x1="290" y1="78" x2="302" y2="68"/>
+  </g>
+  <g fill="#6f9a52">
+    <ellipse cx="126" cy="214" rx="30" ry="11" transform="rotate(-22 126 214)"/>
+    <ellipse cx="274" cy="214" rx="30" ry="11" transform="rotate(22 274 214)"/>
+  </g>
+  <!-- marigolds -->
+  <g transform="translate(96,120)">
+    <g fill="#f39a1a"><circle cx="0" cy="-15" r="7"/><circle cx="11" cy="-11" r="7"/><circle cx="15" cy="0" r="7"/><circle cx="11" cy="11" r="7"/><circle cx="0" cy="15" r="7"/><circle cx="-11" cy="11" r="7"/><circle cx="-15" cy="0" r="7"/><circle cx="-11" cy="-11" r="7"/></g>
+    <circle r="9" fill="#e07b0b"/>
+  </g>
+  <g transform="translate(306,126) scale(0.9)">
+    <g fill="#f5a623"><circle cx="0" cy="-15" r="7"/><circle cx="11" cy="-11" r="7"/><circle cx="15" cy="0" r="7"/><circle cx="11" cy="11" r="7"/><circle cx="0" cy="15" r="7"/><circle cx="-11" cy="11" r="7"/><circle cx="-15" cy="0" r="7"/><circle cx="-11" cy="-11" r="7"/></g>
+    <circle r="9" fill="#e07b0b"/>
+  </g>
+  <!-- bowl -->
+  <path d="M118 189 Q200 252 282 189 Z" fill="#b1873f"/>
+  <path d="M118 189 Q200 247 282 189" fill="none" stroke="#8a6a2e" stroke-width="2"/>
+  <ellipse cx="200" cy="189" rx="82" ry="21" fill="#caa25e"/>
+  <ellipse cx="200" cy="187" rx="82" ry="18" fill="#d8b25e"/>
+  <ellipse cx="200" cy="183" rx="60" ry="15" fill="#e6a92e"/>
+  <ellipse cx="200" cy="177" rx="44" ry="12" fill="#f2bd3e"/>
+  <ellipse cx="190" cy="173" rx="22" ry="7" fill="#f8d271"/>
+  <!-- ladle -->
+  <g transform="rotate(26 252 150)">
+    <rect x="248" y="118" width="8" height="72" rx="4" fill="#8a5a2e"/>
+    <ellipse cx="252" cy="116" rx="17" ry="10" fill="#a06a34"/>
+    <ellipse cx="252" cy="114" rx="11" ry="6" fill="#e6a92e"/>
+  </g>
+  <g fill="#e6a92e" opacity="0.85"><circle cx="150" cy="235" r="3.5"/><circle cx="235" cy="238" r="3"/><circle cx="270" cy="150" r="3"/><circle cx="128" cy="150" r="3"/></g>
+  <rect x="12" y="12" width="376" height="276" fill="none" stroke="#caa25e" stroke-width="1.5"/>
+</svg>
