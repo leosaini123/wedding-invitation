@@ -127,34 +127,55 @@
     document.addEventListener("keydown", (e) => { if (e.key === "Escape" && lb.classList.contains("show")) closeLB(); });
   }
 
-  /* ---------- background music (loops forever; top button mutes/unmutes) ---------- */
+  /* ---------- background music: auto-starts on first interaction, loops,
+                and keeps playing until the user stops it with the button ---------- */
   const bgm = $("#bgm"), audioBtn = $("#audioBtn");
   if (bgm && audioBtn) {
-    let armed = false;
-    const ui = (muted) => {
-      audioBtn.classList.toggle("muted", muted);
-      audioBtn.setAttribute("aria-pressed", muted ? "false" : "true");
-    };
-    const soundOn = () => { bgm.muted = false; if (bgm.paused) bgm.play().catch(() => {}); armed = true; ui(false); };
-    const soundOff = () => { bgm.muted = true; ui(true); };
-
     bgm.loop = true;
     bgm.volume = 0.55;
-    bgm.muted = true;                      // muted autoplay is allowed → keeps looping silently
-    bgm.play().catch(() => {});
-    ui(true);
+    bgm.muted = false;                       // we want actual sound, never silent playback
+    let userStopped = false;                 // becomes true only on a manual stop
 
-    // first interaction anywhere (except the button itself) switches the sound on
-    const first = (e) => {
-      if (armed) return;
-      if (e && e.target && e.target.closest && e.target.closest("#audioBtn")) return;
-      soundOn();
+    // keep the button icon in sync with what the audio is really doing
+    const sync = () => {
+      const playing = !bgm.paused && !bgm.muted;
+      audioBtn.classList.toggle("muted", !playing);
+      audioBtn.setAttribute("aria-pressed", playing ? "true" : "false");
     };
-    window.addEventListener("pointerdown", first, { passive: true });
-    window.addEventListener("keydown", first);
-    window.addEventListener("scroll", () => { if (!armed) soundOn(); }, { passive: true, once: true });
+    bgm.addEventListener("play", sync);
+    bgm.addEventListener("pause", sync);
 
-    // the top button toggles mute
-    audioBtn.addEventListener("click", () => { if (bgm.muted) soundOn(); else soundOff(); });
+    const start = () => { if (userStopped) return; const p = bgm.play(); if (p && p.catch) p.catch(() => {}); };
+
+    // try right away; browsers usually block until a gesture, so also arm the first interaction
+    start(); sync();
+
+    const cleanup = () => {
+      document.removeEventListener("pointerdown", kick);
+      document.removeEventListener("keydown", kick);
+      document.removeEventListener("touchstart", kick);
+      window.removeEventListener("scroll", kickScroll);
+    };
+    function kick(e) {                        // any interaction EXCEPT the button starts playback
+      if (e && e.target && e.target.closest && e.target.closest("#audioBtn")) return;
+      start();
+      if (!bgm.paused) cleanup();
+    }
+    function kickScroll() { start(); if (!bgm.paused) cleanup(); }
+    document.addEventListener("pointerdown", kick);
+    document.addEventListener("keydown", kick);
+    document.addEventListener("touchstart", kick, { passive: true });
+    window.addEventListener("scroll", kickScroll, { passive: true });
+
+    // the button is the ONLY manual control: stop if playing, resume if stopped (single click)
+    audioBtn.addEventListener("click", () => {
+      if (bgm.paused || bgm.muted) {
+        userStopped = false; bgm.muted = false;
+        const p = bgm.play(); if (p && p.catch) p.catch(() => {});
+      } else {
+        userStopped = true; bgm.pause();
+      }
+      sync();
+    });
   }
 })();
