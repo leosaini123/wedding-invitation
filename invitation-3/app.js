@@ -197,14 +197,20 @@
     });
   });
 
-  /* ── 03 · four days — pinned horizontal pan (desktop) ───── */
+  /* ── 03 · four days — the mobile chapter ─────────────────
+     Scroll drives a slider: one day per screen, panned
+     sideways while the section is pinned. Desktop never
+     renders this section at all.
+     ───────────────────────────────────────────────────── */
 
-  mm.add('(min-width: 900px)', function () {
+  mm.add('(max-width: 899px)', function () {
     var section  = document.querySelector('.days');
     var track    = document.querySelector('.days__track');
     var viewport = document.querySelector('.days__viewport');
     var progress = document.querySelector('.days__progress span');
-    if (!section || !track || !viewport) return;
+    var counter  = document.querySelector('[data-day-idx]');
+    var days     = gsap.utils.toArray('.day');
+    if (!section || !track || !viewport || !days.length) return;
 
     var distance = function () {
       return Math.max(0, track.scrollWidth - viewport.clientWidth);
@@ -216,42 +222,43 @@
       scrollTrigger: {
         trigger: section,
         start: 'top top',
-        end: function () { return '+=' + distance(); },
+        // one full screen of scroll per slide
+        end: function () { return '+=' + (days.length * window.innerHeight * 0.9); },
         pin: true,
-        scrub: 1,
+        scrub: 0.6,
         invalidateOnRefresh: true,
         onUpdate: function (self) {
           if (progress) gsap.set(progress, { scaleX: self.progress });
+          if (counter) {
+            var i = Math.min(days.length, Math.floor(self.progress * days.length) + 1);
+            if (counter.textContent !== String(i)) counter.textContent = i;
+          }
         }
       }
     });
 
-    // cards rise as their day slides into view, driven by the pan itself
-    gsap.utils.toArray('.ev').forEach(function (card) {
-      gsap.to(card, {
-        opacity: 1, y: 0, duration: 0.5, ease: 'power2.out',
+    // rows rise as their day slides in, driven by the pan itself
+    gsap.utils.toArray('.ev').forEach(function (row) {
+      gsap.to(row, {
+        opacity: 1, y: 0, duration: 0.45, ease: 'power2.out',
         scrollTrigger: {
-          trigger: card,
+          trigger: row,
           containerAnimation: pan,
-          start: 'left 88%',
+          start: 'left 92%',
           toggleActions: 'play none none reverse'
         }
       });
     });
 
-    return function () { gsap.set(track, { clearProps: 'x' }); };
+    return function () {
+      gsap.set(track, { clearProps: 'x' });
+      gsap.set('.ev', { clearProps: 'opacity,transform' });
+    };
   });
 
-  mm.add('(max-width: 899px)', function () {
-    gsap.utils.toArray('.ev').forEach(function (card) {
-      gsap.from(card, {
-        opacity: 0, y: 20, duration: 0.5, ease: 'power2.out',
-        scrollTrigger: { trigger: card, start: 'top 88%' }
-      });
-    });
-  });
-
-  /* ── 04 · ceremonies — the scrubbed reel (desktop) ──────── */
+  /* ── 04 · ceremonies — the desktop chapter ───────────────
+     The scrubbed reel. Mobile never renders this section.
+     ───────────────────────────────────────────────────── */
 
   mm.add('(min-width: 900px)', function () {
     var frames = gsap.utils.toArray('.frame');
@@ -310,15 +317,6 @@
         gsap.set(f.querySelector('img'), { clearProps: 'scale' });
       });
     };
-  });
-
-  mm.add('(max-width: 899px)', function () {
-    gsap.utils.toArray('.frame').forEach(function (f) {
-      gsap.from(f, {
-        opacity: 0, y: 20, duration: 0.5, ease: 'power2.out',
-        scrollTrigger: { trigger: f, start: 'top 88%' }
-      });
-    });
   });
 
   /* ── 05 · venue reveal + drifting motes ─────────────────── */

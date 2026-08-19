@@ -338,7 +338,7 @@ section{ position:relative; }
   font-size:13px;
 }
 
-/* ═══ 03 · four days ════════════════════════════════════ */
+/* ═══ 03 · four days — MOBILE ONLY ══════════════════════ */
 
 .days{ padding:var(--s7) 0; }
 .days__stage{ padding-inline:var(--s3); }
@@ -347,6 +347,8 @@ section{ position:relative; }
 .days__viewport{ max-width:1120px; margin:0 auto; }
 .days__track{ display:grid; gap:var(--s6); }
 .days__progress{ display:none; }
+.days__hint{ display:none; }
+.days__hint .rule{ width:22px; margin-right:0; }
 
 .day__head{
   display:flex; align-items:baseline; gap:var(--s3);
@@ -379,9 +381,9 @@ section{ position:relative; }
 .ev h3{ font-size:26px; margin:0 var(--s3) 8px; }
 .ev p{ margin:0 var(--s3); color:var(--ink-mute); font-size:14px; }
 
-/* ═══ 04 · ceremonies ═══════════════════════════════════ */
+/* ═══ 04 · ceremonies — DESKTOP ONLY ════════════════════ */
 
-.film{ padding:var(--s7) var(--s3); }
+.film{ display:none; padding:var(--s7) var(--s3); }
 .film__stage{ max-width:1120px; margin:0 auto; }
 .film__well{ display:grid; gap:var(--s4); }
 .frame{ margin:0; position:relative; }
@@ -457,6 +459,109 @@ section{ position:relative; }
 .end__tail{ margin-top:var(--s2); letter-spacing:.3em; }
 
 /* ═══════════════════════════════════════════════════════
+   CHAPTER EXCLUSIVITY
+   Ch.III "Four days" is the mobile chapter — a scroll-driven
+   slider. Ch.IV "Ceremonies" is the desktop chapter — the
+   pinned reel. Each is removed entirely on the other size,
+   including its rail tick.
+   ═══════════════════════════════════════════════════════ */
+
+@media (min-width: 900px){
+  .days{ display:none; }
+  .film{ display:block; }
+  .rail__list a[href="#days"]{ display:none; }
+}
+
+@media (max-width: 899px){
+  .rail__list a[href="#film"]{ display:none; }
+}
+
+/* ═══════════════════════════════════════════════════════
+   MOBILE SLIDER — Ch.III, scroll pans the deck sideways
+   ═══════════════════════════════════════════════════════ */
+
+@media (max-width: 899px) and (prefers-reduced-motion: no-preference){
+
+  .days{ padding:0; }
+  .days__stage{
+    height:100svh;
+    display:flex; flex-direction:column; justify-content:center;
+    padding:var(--s4) 0 var(--s3);
+    overflow:hidden;
+  }
+  .days__head{ margin:0 var(--s3) var(--s3); flex:0 0 auto; }
+  .days__title{ font-size:clamp(34px, 11vw, 56px); }
+
+  .days__viewport{
+    flex:1 1 auto; width:100%;
+    overflow:hidden;
+    display:flex; align-items:center;
+  }
+  .days__track{
+    display:flex; gap:0;
+    height:100%; align-items:center;
+    will-change:transform;
+  }
+  .day{
+    flex:0 0 auto;
+    width:100vw;
+    padding-inline:var(--s3);
+  }
+
+  .day__head{ margin-bottom:var(--s3); }
+  .day__num{ font-size:clamp(44px, 15vw, 76px); }
+
+  .day__events{ gap:0; }
+  .ev{
+    display:grid;
+    grid-template-columns:72px 1fr;
+    grid-template-areas:"img time" "img name" "img copy";
+    column-gap:var(--s2);
+    align-items:center;
+    background:transparent;
+    border:0; border-bottom:1px solid var(--gold-soft);
+    padding:var(--s2) 0;
+    opacity:0; transform:translateY(20px);
+  }
+  .ev:last-child{ border-bottom:0; }
+  .ev img{
+    grid-area:img;
+    width:72px; height:72px; aspect-ratio:1;
+    align-self:center;
+  }
+  .ev__time{ grid-area:time; margin:0; }
+  .ev h3{ grid-area:name; font-size:22px; margin:2px 0 0; }
+  .ev p{ grid-area:copy; margin:2px 0 0; font-size:13px; }
+
+  .days__progress{
+    display:block; flex:0 0 auto;
+    margin:var(--s3) var(--s3) 0;
+    height:1px; background:var(--gold-soft);
+  }
+  .days__progress span{
+    display:block; height:1px; width:100%;
+    background:var(--gold);
+    transform:scaleX(0); transform-origin:left center;
+  }
+
+  .days__hint{
+    flex:0 0 auto;
+    margin:var(--s2) var(--s3) 0;
+    display:flex; align-items:center; gap:10px;
+  }
+}
+
+/* short phones: drop the descriptions so a 3-event day still fits */
+@media (max-width: 899px) and (max-height: 680px) and (prefers-reduced-motion: no-preference){
+  .days__stage{ padding-top:var(--s3); }
+  .days__title{ font-size:32px; }
+  .day__num{ font-size:44px; }
+  .ev p{ display:none; }
+  .ev{ grid-template-columns:56px 1fr; }
+  .ev img{ width:56px; height:56px; }
+}
+
+/* ═══════════════════════════════════════════════════════
    CINEMATIC LAYER — desktop, motion allowed
    Everything above is the readable, stacked fallback.
    ═══════════════════════════════════════════════════════ */
@@ -475,42 +580,6 @@ section{ position:relative; }
   .who--r{ text-align:left; }
   .who--l > p:last-child{ margin-inline:0 0; margin-left:auto; }
   .who--r > p:last-child{ margin-inline:0 0; }
-
-  /* ── pinned horizontal pan ── */
-  .days{ padding:0; }
-  .days__stage{
-    height:100svh;
-    display:flex; flex-direction:column; justify-content:center;
-    padding-block:var(--s5);
-    overflow:hidden;
-  }
-  .days__head{ margin-bottom:var(--s4); flex:0 0 auto; }
-  .days__viewport{
-    max-width:none; width:100%;
-    overflow:hidden; flex:1 1 auto;
-    display:flex; align-items:center;
-  }
-  .days__track{
-    display:flex; gap:var(--s6);
-    padding-inline:max(var(--s3), calc((100vw - var(--rail-w) - 1120px)/2));
-    will-change:transform;
-  }
-  .day{ flex:0 0 auto; width:min(1000px, 78vw); }
-  .day__events{
-    grid-template-columns:repeat(auto-fit, minmax(240px, 1fr));
-    gap:var(--s3);
-  }
-  .ev{ opacity:0; transform:translateY(24px); }
-  .days__progress{
-    display:block; flex:0 0 auto;
-    margin:var(--s4) auto 0; width:min(1120px, 90%);
-    height:1px; background:var(--gold-soft);
-  }
-  .days__progress span{
-    display:block; height:1px; width:100%;
-    background:var(--gold);
-    transform:scaleX(0); transform-origin:left center;
-  }
 
   /* ── pinned crossfade sequence ── */
   .film{ padding:0; }
