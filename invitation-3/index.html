@@ -66,7 +66,7 @@
 <!-- ── 01 · invitation ────────────────────────────────────── -->
 <section id="invite" class="invite" data-chapter="Invitation">
   <div class="invite__media" aria-hidden="true">
-    <img src="assets/barat.webp" alt="" width="1536" height="1024" fetchpriority="high" decoding="async">
+    <img src="assets/image1.jpeg" alt="" width="1200" height="1600" fetchpriority="high" decoding="async">
   </div>
   <div class="invite__body">
     <p class="mono tag">Chapter I</p>
@@ -107,101 +107,135 @@
   <p class="couple__note ph" data-placeholder title="Placeholder — replace with your own words">These two lines are drafts — send me the real ones.</p>
 </section>
 
-<!-- ── 03 · four days (pinned horizontal pan) ─────────────── -->
+<!-- ── 03 · four days — mobile chapter, one event per slide ── -->
 <section id="days" class="days" data-chapter="Four days">
   <div class="days__stage">
     <div class="days__head">
       <p class="mono tag">Chapter III</p>
       <h2 class="days__title">Four days</h2>
+      <ol class="days__pips mono" aria-hidden="true">
+        <li data-pip="22">22</li><li data-pip="23">23</li>
+        <li data-pip="24">24</li><li data-pip="25">25</li>
+      </ol>
     </div>
+
     <div class="days__viewport">
-      <div class="days__track">
+      <ul class="days__track">
 
-        <article class="day">
-          <header class="day__head">
-            <span class="mono day__num">22</span>
-            <span class="mono day__dow">Sunday · November</span>
-          </header>
-          <ul class="day__events">
-            <li class="ev">
-              <img src="assets/haldi.png" alt="Turmeric being applied at the Haldi" width="1402" height="1122" loading="lazy" decoding="async">
-              <span class="mono ev__time">1:00 PM</span><h3>Haldi</h3>
-              <p>Turmeric, sunlight and no dignity whatsoever.</p>
-            </li>
-            <li class="ev">
-              <img src="assets/mahendi.webp" alt="Mehndi being applied to the hands" width="1402" height="1122" loading="lazy" decoding="async">
-              <span class="mono ev__time">5:00 PM</span><h3>Mehndi</h3>
-              <p>Henna, long benches, longer conversations.</p>
-            </li>
-          </ul>
-        </article>
+        <li class="day-marker"><span class="mono">22 November · Sunday</span></li>
 
-        <article class="day">
-          <header class="day__head">
-            <span class="mono day__num">23</span>
-            <span class="mono day__dow">Monday · November</span>
-          </header>
-          <ul class="day__events">
-            <li class="ev">
-              <img src="assets/haldi_carneval.webp" alt="The Haldi Carnival" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">10:00 AM</span><h3>Haldi Carnival</h3>
-              <p>Colour, games, and far too much food.</p>
-            </li>
-            <li class="ev">
-              <img src="assets/jaggo.webp" alt="The Jaggo procession by night" width="1402" height="1122" loading="lazy" decoding="async">
-              <span class="mono ev__time">6:00 PM</span><h3>Jaggo</h3>
-              <p>Lamps on heads, drums in the street, nobody asleep.</p>
-            </li>
-            <li class="ev">
-              <img src="assets/sangeet.webp" alt="The Sangeet night" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">7:00 PM</span><h3>Sangeet</h3>
-              <p>Rehearsed performances. Unrehearsed encores.</p>
-            </li>
-          </ul>
-        </article>
+        <li class="ev" data-day="22">
+          <figure class="ev__shot">
+            <img src="assets/haldi.png" alt="Turmeric being applied at the Haldi" width="1402" height="1122" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">22 Nov · Sunday · 1:00 PM</span>
+            <h3>Haldi</h3>
+            <p>Turmeric, sunlight and no dignity whatsoever.</p>
+          </div>
+        </li>
 
-        <article class="day">
-          <header class="day__head">
-            <span class="mono day__num">24</span>
-            <span class="mono day__dow">Tuesday · November</span>
-          </header>
-          <ul class="day__events">
-            <li class="ev">
-              <img src="assets/barat.webp" alt="The Barat arriving" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">11:00 AM</span><h3>Barat</h3>
-              <p>The groom arrives. Slowly. Very slowly.</p>
-            </li>
-            <li class="ev">
-              <img src="assets/vermala.png" alt="The Varmala garland exchange" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">7:00 PM</span><h3>Varmala</h3>
-              <p>Two garlands, one contested height advantage.</p>
-            </li>
-            <li class="ev">
-              <img src="assets/pooja.png" alt="The wedding Pooja" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">9:00 PM</span><h3>Pooja</h3>
-              <p>The vows. The quiet part of a loud week.</p>
-            </li>
-          </ul>
-        </article>
+        <li class="ev" data-day="22">
+          <figure class="ev__shot">
+            <img src="assets/mahendi.webp" alt="Mehndi being applied to the hands" width="1402" height="1122" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">22 Nov · Sunday · 5:00 PM</span>
+            <h3>Mehndi</h3>
+            <p>Henna, long benches, longer conversations.</p>
+          </div>
+        </li>
 
-        <article class="day">
-          <header class="day__head">
-            <span class="mono day__num">25</span>
-            <span class="mono day__dow">Wednesday · November</span>
-          </header>
-          <ul class="day__events">
-            <li class="ev">
-              <img src="assets/vidai.png" alt="The Vidai farewell" width="1536" height="1024" loading="lazy" decoding="async">
-              <span class="mono ev__time">7:00 AM</span><h3>Vidai</h3>
-              <p>The goodbye we have been avoiding all week. Come early.</p>
-            </li>
-          </ul>
-        </article>
+        <li class="day-marker"><span class="mono">23 November · Monday</span></li>
 
-      </div>
+        <li class="ev" data-day="23">
+          <figure class="ev__shot">
+            <img src="assets/haldi_carneval.webp" alt="The Haldi Carnival" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">23 Nov · Monday · 10:00 AM</span>
+            <h3>Haldi Carnival</h3>
+            <p>Colour, games, and far too much food.</p>
+          </div>
+        </li>
+
+        <li class="ev" data-day="23">
+          <figure class="ev__shot">
+            <img src="assets/jaggo.webp" alt="The Jaggo procession by night" width="1402" height="1122" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">23 Nov · Monday · 6:00 PM</span>
+            <h3>Jaggo</h3>
+            <p>Lamps on heads, drums in the street, nobody asleep.</p>
+          </div>
+        </li>
+
+        <li class="ev" data-day="23">
+          <figure class="ev__shot">
+            <img src="assets/sangeet.webp" alt="The Sangeet night" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">23 Nov · Monday · 7:00 PM</span>
+            <h3>Sangeet</h3>
+            <p>Rehearsed performances. Unrehearsed encores.</p>
+          </div>
+        </li>
+
+        <li class="day-marker"><span class="mono">24 November · Tuesday</span></li>
+
+        <li class="ev" data-day="24">
+          <figure class="ev__shot">
+            <img src="assets/barat.webp" alt="The Barat arriving" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">24 Nov · Tuesday · 11:00 AM</span>
+            <h3>Barat</h3>
+            <p>The groom arrives. Slowly. Very slowly.</p>
+          </div>
+        </li>
+
+        <li class="ev" data-day="24">
+          <figure class="ev__shot">
+            <img src="assets/vermala.png" alt="The Varmala garland exchange" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">24 Nov · Tuesday · 7:00 PM</span>
+            <h3>Varmala</h3>
+            <p>Two garlands, one contested height advantage.</p>
+          </div>
+        </li>
+
+        <li class="ev" data-day="24">
+          <figure class="ev__shot">
+            <img src="assets/pooja.png" alt="The wedding Pooja" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">24 Nov · Tuesday · 9:00 PM</span>
+            <h3>Pooja</h3>
+            <p>The vows. The quiet part of a loud week.</p>
+          </div>
+        </li>
+
+        <li class="day-marker"><span class="mono">25 November · Wednesday</span></li>
+
+        <li class="ev" data-day="25">
+          <figure class="ev__shot">
+            <img src="assets/vidai.png" alt="The Vidai farewell" width="1536" height="1024" loading="lazy" decoding="async">
+          </figure>
+          <div class="ev__meta">
+            <span class="mono ev__when">25 Nov · Wednesday · 7:00 AM</span>
+            <h3>Vidai</h3>
+            <p>The goodbye we have been avoiding all week. Come early.</p>
+          </div>
+        </li>
+
+      </ul>
     </div>
+
     <div class="days__progress" aria-hidden="true"><span></span></div>
-    <p class="mono days__hint" aria-hidden="true"><span class="rule"></span>keep scrolling · <span data-day-idx>1</span> of 4</p>
+    <p class="mono days__hint" aria-hidden="true">
+      <span class="rule"></span>keep scrolling · <span data-ev-idx>1</span> of 9
+    </p>
   </div>
 </section>
 
@@ -293,6 +327,9 @@
 
 <!-- ── 07 · end card ──────────────────────────────────────── -->
 <section id="end" class="end" data-chapter="Vidai">
+  <div class="end__media" aria-hidden="true">
+    <img src="assets/image2.jpeg" alt="" width="688" height="1032" loading="lazy" decoding="async">
+  </div>
   <p class="mono end__last">Vidai · 25 November · 7:00 AM</p>
   <span class="end__rule" aria-hidden="true"></span>
   <p class="end__names">Lovepreet <em class="amp">&amp;</em> Arohi</p>

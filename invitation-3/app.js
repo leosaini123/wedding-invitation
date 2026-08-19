@@ -198,9 +198,9 @@
   });
 
   /* ── 03 · four days — the mobile chapter ─────────────────
-     Scroll drives a slider: one day per screen, panned
-     sideways while the section is pinned. Desktop never
-     renders this section at all.
+     Scroll drives a slider: one event per screen, photograph
+     at full slide height, panned sideways while the section
+     is pinned. Desktop never renders this section at all.
      ───────────────────────────────────────────────────── */
 
   mm.add('(max-width: 899px)', function () {
@@ -208,13 +208,25 @@
     var track    = document.querySelector('.days__track');
     var viewport = document.querySelector('.days__viewport');
     var progress = document.querySelector('.days__progress span');
-    var counter  = document.querySelector('[data-day-idx]');
-    var days     = gsap.utils.toArray('.day');
-    if (!section || !track || !viewport || !days.length) return;
+    var counter  = document.querySelector('[data-ev-idx]');
+    var pips     = gsap.utils.toArray('.days__pips li');
+    var slides   = gsap.utils.toArray('.ev');
+    if (!section || !track || !viewport || !slides.length) return;
 
     var distance = function () {
       return Math.max(0, track.scrollWidth - viewport.clientWidth);
     };
+
+    var current = -1;
+    function mark(i) {
+      if (i === current) return;
+      current = i;
+      if (counter) counter.textContent = i + 1;
+      var day = slides[i].dataset.day;
+      pips.forEach(function (p) {
+        p.classList.toggle('is-on', p.dataset.pip === day);
+      });
+    }
 
     var pan = gsap.to(track, {
       x: function () { return -distance(); },
@@ -222,27 +234,25 @@
       scrollTrigger: {
         trigger: section,
         start: 'top top',
-        // one full screen of scroll per slide
-        end: function () { return '+=' + (days.length * window.innerHeight * 0.9); },
+        // roughly three quarters of a screen of scroll per slide
+        end: function () { return '+=' + (slides.length * window.innerHeight * 0.75); },
         pin: true,
         scrub: 0.6,
         invalidateOnRefresh: true,
         onUpdate: function (self) {
           if (progress) gsap.set(progress, { scaleX: self.progress });
-          if (counter) {
-            var i = Math.min(days.length, Math.floor(self.progress * days.length) + 1);
-            if (counter.textContent !== String(i)) counter.textContent = i;
-          }
+          mark(Math.min(slides.length - 1, Math.round(self.progress * (slides.length - 1))));
         }
       }
     });
+    mark(0);
 
-    // rows rise as their day slides in, driven by the pan itself
-    gsap.utils.toArray('.ev').forEach(function (row) {
-      gsap.to(row, {
+    // each slide settles as it reaches centre, driven by the pan itself
+    slides.forEach(function (slide) {
+      gsap.to(slide, {
         opacity: 1, y: 0, duration: 0.45, ease: 'power2.out',
         scrollTrigger: {
-          trigger: row,
+          trigger: slide,
           containerAnimation: pan,
           start: 'left 92%',
           toggleActions: 'play none none reverse'
@@ -252,7 +262,7 @@
 
     return function () {
       gsap.set(track, { clearProps: 'x' });
-      gsap.set('.ev', { clearProps: 'opacity,transform' });
+      gsap.set(slides, { clearProps: 'opacity,transform' });
     };
   });
 
@@ -383,6 +393,11 @@
   gsap.from('.card', {
     opacity: 0, y: 22, duration: 0.5, stagger: 0.06, ease: 'power2.out',
     scrollTrigger: { trigger: '.cards', start: 'top 82%' }
+  });
+
+  gsap.to('.end__media', {
+    yPercent: -10, ease: 'none',
+    scrollTrigger: { trigger: '.end', start: 'top bottom', end: 'bottom top', scrub: true }
   });
 
   gsap.from('.end__rule', {

@@ -1,0 +1,134 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//Lovepreet & Arohi//Wedding Invitation//EN
+CALSCALE:GREGORIAN
+METHOD:PUBLISH
+X-WR-CALNAME:Lovepreet & Arohi — Wedding
+X-WR-TIMEZONE:Asia/Kolkata
+BEGIN:VEVENT
+UID:haldi-22nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261122T073000Z
+DTEND:20261122T103000Z
+SUMMARY:Haldi — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 1 of 4. Turmeric, sunlight and no dignity whatsoever.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Haldi starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:mehndi-22nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261122T113000Z
+DTEND:20261122T153000Z
+SUMMARY:Mehndi — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 1 of 4. Henna, long benches, longer conversations.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Mehndi starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:haldi-carnival-23nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261123T043000Z
+DTEND:20261123T073000Z
+SUMMARY:Haldi Carnival — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 2 of 4. Colour, games, and far too much food.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Haldi Carnival starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:jaggo-23nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261123T123000Z
+DTEND:20261123T133000Z
+SUMMARY:Jaggo — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 2 of 4. Lamps on heads, drums in the street, nobody asleep.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Jaggo starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:sangeet-23nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261123T133000Z
+DTEND:20261123T173000Z
+SUMMARY:Sangeet — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 2 of 4. Rehearsed performances. Unrehearsed encores.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Sangeet starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:barat-24nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261124T053000Z
+DTEND:20261124T083000Z
+SUMMARY:Barat — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 3 of 4. The groom arrives. Slowly. Very slowly.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Barat starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:varmala-24nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261124T133000Z
+DTEND:20261124T153000Z
+SUMMARY:Varmala — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 3 of 4. Two garlands, one contested height advantage.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Varmala starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:pooja-24nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261124T153000Z
+DTEND:20261124T183000Z
+SUMMARY:Pooja — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 3 of 4. The vows. The quiet part of a loud week.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Pooja starts in 30 minutes
+END:VALARM
+END:VEVENT
+BEGIN:VEVENT
+UID:vidai-25nov2026@lovepreet-arohi
+DTSTAMP:20260820T000000Z
+DTSTART:20261125T013000Z
+DTEND:20261125T033000Z
+SUMMARY:Vidai — Lovepreet & Arohi
+LOCATION:The Royal Garden Palace, Amritsar, Punjab
+DESCRIPTION:Day 4 of 4. The goodbye we have been avoiding all week. Come early.\nThe wedding of Lovepreet & Arohi, 22-25 November 2026.
+BEGIN:VALARM
+TRIGGER:-PT30M
+ACTION:DISPLAY
+DESCRIPTION:Vidai starts in 30 minutes
+END:VALARM
+END:VEVENT
+END:VCALENDAR
