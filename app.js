@@ -9,8 +9,8 @@
 
   /* ── the only things worth editing in this file ────────── */
   var CONTENT = {
-    // Haldi, 22 Nov 2026, 1:00 PM IST
-    countdownTo: '2026-11-22T13:00:00+05:30'
+    // Haldi Carnival, 23 Nov 2026, 11:00 AM IST
+    countdownTo: '2026-11-23T11:00:00+05:30'
   };
 
   var root = document.documentElement;
@@ -197,7 +197,7 @@
     });
   });
 
-  /* ── 03 · four days — the mobile chapter ─────────────────
+  /* ── 03 · three days — the mobile chapter ────────────────
      Scroll drives a slider: one event per screen, photograph
      at full slide height, panned sideways while the section
      is pinned. Desktop never renders this section at all.
